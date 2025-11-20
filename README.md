@@ -1,9 +1,11 @@
-Terraform Remote Backend using S3 and DynamoDB
-1. Overview
+# Terraform Remote Backend using S3 and DynamoDB
+
+## 1. Overview
 
 This project demonstrates how to configure a secure Terraform remote backend using S3 for state storage and DynamoDB for state locking.
 
-2. Project Directory Structure
+## 2. Project Directory Structure
+
 STATEFILE-RMT-BEND/
 │── backend.tf
 │── dynamoDB.tf
@@ -12,57 +14,71 @@ STATEFILE-RMT-BEND/
 │── variable.tf
 │── main.tf
 
-3. Purpose of This Project
-3.1 Problems with Local Statefile
+markdown
+Copy code
 
-Sensitive data stored in terraform.tfstate
+## 3. Purpose of This Project
 
-Anyone with access to the repo can read the statefile
+### 3.1 Problems with Local Statefile
 
-No state locking, causing possible corruption
+- Sensitive data stored in `terraform.tfstate`
+- Anyone with access to the repo can read the statefile
+- No state locking, causing possible corruption
 
-3.2 Objectives
+### 3.2 Objectives
 
-Store state securely in S3
+- Store state securely in S3  
+- Use DynamoDB for state locking  
+- Provide team-safe Terraform operations  
 
-Use DynamoDB for state locking
+## 4. Technologies Used
 
-Provide team-safe Terraform operations
+- Terraform v1.x  
+- AWS S3  
+- AWS DynamoDB  
+- AWS IAM  
 
-4. Technologies Used
+## 5. Steps to Use the Project
 
-Terraform v1.x
-
-AWS S3
-
-AWS DynamoDB
-
-AWS IAM
-
-5. Steps to Use the Project
-5.1 Initialize Terraform
+### 5.1 Initialize Terraform
 terraform init
 
-5.2 Validate
+shell
+Copy code
+
+### 5.2 Validate
 terraform validate
 
-5.3 Plan
+shell
+Copy code
+
+### 5.3 Plan
 terraform plan
 
-5.4 Apply
+shell
+Copy code
+
+### 5.4 Apply
 terraform apply
 
-6. Backend Example
+shell
+Copy code
+
+## 6. Backend Example
+
 terraform {
-  backend "s3" {
-    bucket         = "<your-s3-bucket>"
-    key            = "state/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "<your-dynamodb-table>"
-    encrypt        = true
-  }
+backend "s3" {
+bucket = "<your-s3-bucket>"
+key = "state/terraform.tfstate"
+region = "us-east-1"
+dynamodb_table = "<your-dynamodb-table>"
+encrypt = true
+}
 }
 
-7. Summary
+pgsql
+Copy code
+
+## 7. Summary
 
 This project provides a production-ready remote backend with secure state storage and locking.
