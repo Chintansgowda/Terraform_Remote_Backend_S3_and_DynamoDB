@@ -14,8 +14,6 @@ STATEFILE-RMT-BEND/
 │── variable.tf
 │── main.tf
 
-markdown
-Copy code
 
 ## 3. Purpose of This Project
 
@@ -43,26 +41,14 @@ Copy code
 ### 5.1 Initialize Terraform
 terraform init
 
-shell
-Copy code
-
 ### 5.2 Validate
 terraform validate
-
-shell
-Copy code
 
 ### 5.3 Plan
 terraform plan
 
-shell
-Copy code
-
 ### 5.4 Apply
 terraform apply
-
-shell
-Copy code
 
 ## 6. Backend Example
 
@@ -75,9 +61,6 @@ dynamodb_table = "<your-dynamodb-table>"
 encrypt = true
 }
 }
-
-pgsql
-Copy code
 
 ## 7. Summary
 
