@@ -20,7 +20,7 @@ data "aws_ami" "eg-ubuntu" {
 
 resource "aws_instance" "eg-web" {
     ami           = data.aws_ami.eg-ubuntu.id
-    instance_type = var.inst_type
+    instance_type = "t2.micro"
     security_groups = [aws_default_security_group.eg-sg.id]
     
 
